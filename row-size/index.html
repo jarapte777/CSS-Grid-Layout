@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tamaño de item en filas</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container{
+            display: grid; /*con este atributo se comienza a trabajar el Grid */
+            grid-template-columns: repeat(7, 1fr); /*este atributo permite definir cuantas columnas y de que tamaño serán las columnas en las que se divida el grid*/
+            grid-template-rows: repeat(2, 200px); /*este atributo permite definir cuantas filas y de que tamaño serán las filas en las que se divida el grid*/
+            grid-gap: 5px;
+            height: 100vh;
+        }
+
+        .item{
+            background-color: aqua;
+            padding: 10px;
+            border: 1px solid red;
+        }
+
+        .item:nth-of-type(1){
+            grid-column: 1 / span 3;
+            grid-row: 1 / span 2;
+        }
+
+        .item:nth-of-type(2){
+            grid-column: 4 / span 2;
+            grid-row: 1 / span 2;
+        }
+
+        .item:nth-of-type(3){
+            grid-column: 6 / span 2;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="container"> <!-- la clase container es la clase padre-->
+        <div class="item">item #1</div>
+        <div class="item">item #2</div>
+        <div class="item">item #3</div>
+        <div class="item">item #4</div>
+        <div class="item">item #5</div>
+    </section>
+</body>
+</html>

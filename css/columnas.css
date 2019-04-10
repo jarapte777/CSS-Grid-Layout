@@ -1,0 +1,53 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    display: grid; /*con este atributo se comienza a trabajar el Grid */
+    /* grid-template-columns: 25% 200px 25%; este atributo permite definir cuantas columnas y de que tamaño serán las columnas en las que se divida el grid */
+    /* grid-template-rows: 300px 300px; este atributo permite definir cuantas filas y de que tamaño serán las filas en las que se divida el grid */
+    /* grid-template: primero son las filas / despues las columnas */
+    /* grid-template: 300px 100px 100px / 1fr 1fr 1fr; de esta manera se definen tanto filas como columas del grid fr es una unidad de medida la cual equivale a la fraccion que ocupará el item dentro del container */
+    /* grid-template: 300px 100px 100px / repeat(4, 1fr); la función repeat (cantidad, valor) permite hacer una condicion el numero de veces que se indique */
+    /* grid-template: 300px 100px 100px / repeat(4, minmax(200px, 1fr)); tambien se pueden tener funciones dentro de funciones */
+    grid-template: 100px 1fr 50px / 200px 1fr;
+    /* grid-column-gap: 30px; Forma de definir un espaciado entre columnas */
+    /* grid-row-gap: 50px; Forma de definir un espaciado entre filas */
+    grid-gap: 10px;
+    height: 100vh;
+    grid-template-areas: "header header" 
+                         "left content" 
+                         "footer footer"
+}
+
+.item{
+    background-color: aqua;
+    padding: 10px;
+    border: 1px solid red;
+}
+
+.item:nth-of-type(4){
+    background-color: blue;
+    display: grid; /*dentro de un item se puede definir un nuevo grid y darles sus propios estilos*/
+    grid-template: 50px 50px 50px / 200px 200px 200px;
+}
+
+.item .item{
+    background: green;
+}
+
+.header{
+    grid-area: header;
+}
+
+.left{
+    grid-area: left;
+}
+
+.contenido{
+    grid-area: content;
+}
+
+.footer{
+    grid-area: footer;
+}

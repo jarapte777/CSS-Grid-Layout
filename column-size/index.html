@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tamaño de item en columnas</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container{
+            display: grid; /*con este atributo se comienza a trabajar el Grid */
+            grid-template-columns: repeat(3, 1fr); /*este atributo permite definir cuantas columnas y de que tamaño serán las columnas en las que se divida el grid*/
+            grid-template-rows: repeat(4, 1fr); /*este atributo permite definir cuantas filas y de que tamaño serán las filas en las que se divida el grid*/
+            grid-gap: 10px;
+            height: 100vh;
+        }
+
+        .item{
+            background-color: aqua;
+            padding: 10px;
+            border: 1px solid red;
+        }
+
+        .item:nth-of-type(1){
+            background-color: green;
+            grid-column-start: 1; /*cuando se le asignan numeros al column start y end se indica desde que linea del grid el item va a tomar las columnas y de igual manera para terminar*/
+            grid-column-end: 3;
+        }
+
+        .item:nth-of-type(8){
+            /* grid-column: 1 / span 2; el span permite indicar cuantas columnas va a ocupar el item */
+            grid-column: 1 / -1; /*con el -1 se indica que el item va a ocupar todo el número de columnas que existan*/
+        }
+
+        .item:nth-of-type(7){
+            grid-column: 2 / 4;
+        }
+    </style>
+</head>
+<body>
+    <section class="container"> <!-- la clase container es la clase padre-->
+        <div class="item">item #1</div>
+        <div class="item">item #2</div>
+        <div class="item">item #3</div>
+        <div class="item">item #4</div>
+        <div class="item">item #5</div>
+        <div class="item">item #6</div>
+        <div class="item">item #7</div>
+        <div class="item">item #8</div>
+        <div class="item">item #9</div>
+        <div class="item">item #10</div>
+        <div class="item">item #11</div>
+        <div class="item">item #12</div>
+    </section>
+</body>
+</html>
